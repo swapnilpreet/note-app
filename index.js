@@ -5,6 +5,7 @@ const userController = require("./routes/user.routes");
 const notesController = require('./routes/notes.routes');
 const authentication = require('./middlewares/authentication');
 const app = express();
+require('dotenv').config()
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
@@ -28,5 +29,5 @@ app.listen(PORT,async()=>{
     console.log("eroor connecting to db")
     console.log(err)
     }
-    console.log("server listening on 8000")
+    console.log("server listening on",PORT)
 })
