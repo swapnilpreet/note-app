@@ -4,8 +4,8 @@ const connection = require('./config/db')
 const userController = require("./routes/user.routes");
 const notesController = require('./routes/notes.routes');
 const authentication = require('./middlewares/authentication');
-
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
@@ -19,7 +19,7 @@ app.use(authentication)
 
 app.use("/notes",notesController)
 
-app.listen(8000,async()=>{
+app.listen(PORT,async()=>{
     try{
         await connection
         console.log("Db connected")
