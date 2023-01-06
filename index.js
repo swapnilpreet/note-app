@@ -4,7 +4,11 @@ const connection = require('./config/db')
 const userController = require("./routes/user.routes");
 const notesController = require('./routes/notes.routes');
 const authentication = require('./middlewares/authentication');
+const cors = require('cors');
+
 const app = express();
+app.use(cors());
+
 require('dotenv').config()
 const PORT = process.env.PORT || 3000;
 
